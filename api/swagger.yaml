@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: API Wars
+  description: |
+    API Wars is supposed to be a benchmarking test for API frameworks and the APIs will have to be written in compliance with this API specification.
+  contact: {}
+  version: 0.0.1
+servers:
+- url: http://apiwars.eit-demo.com
+paths:
+  /hello:
+    get:
+      summary: getHelloWorld
+      description: |
+        Gets a simple Hello World Message back just to get started there will tougher challenges to come, and the API will evolve to give more challenges to the API developer
+      operationId: GetHelloWorld
+      parameters: []
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/helloworld'
+              example:
+                Message: Hellow World
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+components:
+  schemas:
+    helloworld:
+      title: helloworld
+      type: object
+      properties:
+        Message:
+          type: string
+      example:
+        Message: Hello World
